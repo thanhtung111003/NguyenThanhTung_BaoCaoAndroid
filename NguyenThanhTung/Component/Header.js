@@ -11,12 +11,12 @@ const Header = () => {
           <Icon name="list" size={20} color="#444" />
         </TouchableOpacity>
         
-        <Text style={styles.title}>Shốp Fụ Ciện</Text>
+        <Text style={styles.title}>Sốp Fụ Ciện</Text>
       </View>
       
       <View style={styles.profile}>
         <Image
-          source={require('../assets/us.png')}
+          source={require('../assets/us.jpg')}
           style={styles.profileImage}
         />
       </View>
@@ -27,11 +27,7 @@ const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#f2f2f2',
-<<<<<<< HEAD
-    paddingVertical: 40,
-=======
     paddingVertical: 10,
->>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
     paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',

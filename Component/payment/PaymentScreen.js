@@ -1,13 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+<<<<<<< HEAD
 import AsyncStorage from '@react-native-async-storage/async-storage';
+=======
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
 
 const PaymentScreen = () => {
     const navigation = useNavigation();
     const handlePaymentComplete = () => {
         // Xử lý việc mua hàng
         console.log('Chúc mừng bạn đã mua hàng thành công!');
+<<<<<<< HEAD
         clearAsyncStorage();
         navigation.navigate('PaymentSuccess');
       };
@@ -19,6 +23,10 @@ const PaymentScreen = () => {
           console.error('Lỗi xóa dữ liệu trong AsyncStorage:', error);
         }
       };
+=======
+        navigation.navigate('PaymentSuccess');
+      };
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
     return (
         <View style={styles.container}>
             <View style={styles.header}>

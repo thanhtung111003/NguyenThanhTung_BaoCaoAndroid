@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, TextInput, Button } from 'react-native';
+=======
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from 'react-native';
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AllProduct = () => {
   const [products, setProducts] = useState([]);
+<<<<<<< HEAD
   const [searchText, setSearchText] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
+=======
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
 
   useEffect(() => {
     getAllProduct();
   }, []);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
   const navigation = useNavigation();
 
   const getAllProduct = async () => {
     try {
       const response = await axios.get('https://api.escuelajs.co/api/v1/products');
+<<<<<<< HEAD
       setProducts(response.data);
       setFilteredProducts(response.data);
+=======
+  
+      setProducts(response.data);
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
     } catch (error) {
       alert(error.message);
     }
   };
+<<<<<<< HEAD
 
   const handleSearch = () => {
     const filtered = products.filter((product) =>
@@ -39,10 +55,19 @@ const AllProduct = () => {
   const renderProduct = ({ item, navigation }) => (
     <TouchableOpacity style={styles.productItem} onPress={() => navigateToProductDetail(item)}>
       <Image source={{ uri: item.images[0] }} style={styles.productImage} resizeMode="cover" />
+=======
+  const navigateToProductDetail = (item) => {
+    navigation.navigate('ProductDetail', { item });
+};
+  const renderProduct = ({ item, navigation }) => (
+    <TouchableOpacity style={styles.productItem} onPress={() => navigateToProductDetail(item)}>
+      <Image source={{ uri: item.images[92] }} style={styles.productImage} />
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
       <Text style={styles.productName}>{item.title}</Text>
       <Text style={styles.productPrice}>{item.price}</Text>
     </TouchableOpacity>
   );
+<<<<<<< HEAD
 
   return (
     <View style={styles.container}>
@@ -57,11 +82,30 @@ const AllProduct = () => {
       </View>
       <FlatList
         data={filteredProducts}
+=======
+  return (
+    <View style={styles.container}>
+      <View style={styles.catetitle}>
+        <Text style={styles.titleText}>Sản phẩm</Text>
+        <Text style={styles.viewMoreText}>Xem thêm</Text>
+      </View>
+      <FlatList
+        data={products}
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
         renderItem={({ item }) => renderProduct({ item, navigation })}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         contentContainerStyle={styles.productList}
+<<<<<<< HEAD
       />
+=======
+        
+      />
+      
+
+
+
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
     </View>
   );
 };
@@ -71,6 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
   },
+<<<<<<< HEAD
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -88,6 +133,21 @@ const styles = StyleSheet.create({
  
     marginRight: 10,
     paddingHorizontal: 8,
+=======
+  catetitle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 15,
+    paddingHorizontal: 10,
+  },
+  titleText: {
+    fontSize: 20,
+    color: 'red',
+    fontWeight: '600',
+  },
+  viewMoreText: {
+    fontSize: 15,
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
   },
   productItem: {
     flex: 1,

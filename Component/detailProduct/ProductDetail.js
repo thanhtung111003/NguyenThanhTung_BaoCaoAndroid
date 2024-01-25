@@ -4,9 +4,13 @@ import {
     SafeAreaView,
     Image,
     Text,
+<<<<<<< HEAD
     StyleSheet,
     ScrollView,
     TouchableOpacity
+=======
+    StyleSheet
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -88,6 +92,7 @@ const ProductDetail = ({ route, navigation }) => {
             // Đọc giỏ hàng hiện tại từ AsyncStorage
             const existingCart = await AsyncStorage.getItem('cart');
             const cart = existingCart ? JSON.parse(existingCart) : [];
+<<<<<<< HEAD
     
             // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
             const existingProductIndex = cart.findIndex(item => item.id === product.id);
@@ -104,6 +109,16 @@ const ProductDetail = ({ route, navigation }) => {
             await AsyncStorage.setItem('cart', JSON.stringify(cart));
     
             console.log('Thêm sản phẩm thành công!');
+=======
+
+            // Thêm sản phẩm vào giỏ hàng
+            cart.push(product);
+
+            // Lưu giỏ hàng mới vào AsyncStorage
+            await AsyncStorage.setItem('cart', JSON.stringify(cart));
+
+            console.log('Thêm sản phẩm thành công!');
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
         } catch (error) {
             console.error('Lỗi khi thêm vào giỏ hàng:', error);
         }
@@ -118,6 +133,7 @@ const ProductDetail = ({ route, navigation }) => {
                 <Icon name="arrow-back" size={28} onPress={() => navigation.goBack()} />
                 <Icon name="shopping-cart" size={28} onPress={() => navigation.navigate('CartPage')} />
             </View> */}
+<<<<<<< HEAD
             <ScrollView>
                 <View style={style.container}>
                     <Image source={{ uri: item.images[0] }} style={style.productImage} resizeMode="cover" />
@@ -191,6 +207,90 @@ const ProductDetail = ({ route, navigation }) => {
                     </View>
                 </View>
             </ScrollView>
+=======
+
+            <View style={style.imageContainer}>
+                <Image
+                    source={{ uri: item.image }}
+                    style={{ resizeMode: 'contain', flex: 1 }}
+                />
+            </View>
+            <View style={style.detailsContainer}>
+                <View
+                    style={{
+                        marginLeft: 20,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}>
+                    <Text style={{
+                        fontSize: 22,
+                        fontWeight: 'bold',
+                        width: 250
+                    }}>
+                        {item.title}
+                    </Text>
+                    <View style={style.priceTag}>
+                        <Text
+                            style={{
+                                marginLeft: 15,
+                                color: '#000',
+                                fontWeight: 'bold',
+                                fontSize: 16,
+                            }}>
+                            ${item.price}
+                        </Text>
+                    </View>
+                </View>
+                <View style={{ paddingHorizontal: 20, marginTop: 10 }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}>About</Text>
+                    <Text
+                        style={{
+                            color: 'grey',
+                            fontSize: 16,
+                            lineHeight: 22,
+                            marginTop: 10,
+                        }}>
+                        {item.description}
+                    </Text>
+                    <View
+                        style={{
+                            marginTop: 20,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                        }}>
+                        <View
+                            style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                            }}>
+                            <View style={style.borderBtn} onPress={() => handleDecreaseQuantity(item.id)}>
+                                <AntDesign name="minus" size={18} color="black" />
+                            </View>
+                            <Text
+                                style={{
+                                    fontSize: 20,
+                                    marginHorizontal: 10,
+                                    fontWeight: 'bold',
+                                }}>
+                                1
+                            </Text>
+                            <View style={style.borderBtn} onPress={() => handleIncreaseQuantity(item.id)}>
+                                <AntDesign name="plus" size={18} color="black" />
+                            </View>
+                        </View>
+
+                        <View style={style.buyBtn}>
+                            <Text
+                                onPress={() => addToCart(item)}
+                                style={{ color: '#000', fontSize: 18, fontWeight: 'bold' }}>
+                                Add To Cart
+                            </Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
         </SafeAreaView>
     );
 };
@@ -202,6 +302,7 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+<<<<<<< HEAD
     productImage: {
         width: '100%',
         height: 200,
@@ -209,6 +310,12 @@ const style = StyleSheet.create({
         resizeMode: 'cover',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
+=======
+    imageContainer: {
+        flex: 0.45,
+        marginTop: 20,
+        justifyContent: 'center',
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
     },
     detailsContainer: {
         flex: 0.55,

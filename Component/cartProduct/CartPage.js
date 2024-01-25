@@ -5,8 +5,12 @@ import {
   View,
   Text,
   Image,
+<<<<<<< HEAD
   TouchableOpacity,
   createContext
+=======
+  TouchableOpacity
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -142,8 +146,12 @@ const CartPage = ({ navigation }) => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <View style={styles.cartItem}>
+<<<<<<< HEAD
                 <Image source={{ uri: item.images[0] }} style={styles.productImage} resizeMode="cover" />
 
+=======
+                <Image source={{ uri: item.image }} style={styles.productImage} />
+>>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
                 <View style={styles.productDetails}>
                   <Text style={styles.title}>{item.title}</Text>
                   <Text style={styles.price}>Price: ${item.price}</Text>

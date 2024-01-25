@@ -6,21 +6,13 @@ import SearchBar from "./home/search"
 import Categories from "./home/Category"
 import SliderContainer from "./home/slider"
 import AllProduct from './home/AllProduct';
-import CartPage from './cartProduct/CartPage';
-
 
 const Home = () => {
     return (
         <ScrollView style={styles.container}>
-<<<<<<< HEAD
-            {/* <View style={styles.searchContainer}>
-                <SearchBar />
-            </View> */}
-=======
             <View style={styles.searchContainer}>
                 <SearchBar />
             </View>
->>>>>>> 967496ccd6f57cce620bfcc59ac79de5f552acea
             <View style={styles.sliderContainer}>
                 <SliderContainer />
             </View>
